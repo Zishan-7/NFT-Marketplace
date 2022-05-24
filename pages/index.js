@@ -2,7 +2,7 @@ import { ethers } from "ethers";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Web3Modal from "web3modal";
-
+import Image from "next/image";
 import { marketplaceAddress } from "../config";
 
 import NFTMarketplace from "../artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json";
@@ -77,7 +77,12 @@ export default function Home() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
           {nfts.map((nft, i) => (
             <div key={i} className="border shadow rounded-xl overflow-hidden ">
-              <img src={nft.image} className="max-h-80 w-full" />
+              <Image
+                src={nft.image}
+                // className="w-full"
+                height="300"
+                width="300"
+              />
               <div className="p-4">
                 <p
                   style={{ height: "64px" }}
